@@ -5,13 +5,13 @@ namespace LakM\NoPass\Generators;
 use Illuminate\Foundation\Auth\User;
 use LakM\NoPass\Enums\Login;
 
-readonly class Generator
+class Generator
 {
     public function __construct(
-        private Login $type,
-        private User $user,
-        private int $expireAfter,
-        private ?string $routeName = null,
+        private readonly Login $type,
+        private readonly User $user,
+        private readonly int $expireAfter,
+        private readonly ?string $routeName = null,
     ) {}
 
     public function generate(array $data = []): string

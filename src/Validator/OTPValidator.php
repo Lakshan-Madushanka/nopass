@@ -9,9 +9,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Timebox;
 use LakM\NoPass\CacheService;
 
-readonly class OTPValidator implements ValidatorContract
+class OTPValidator implements ValidatorContract
 {
-    public function __construct(private string|int $otp) {}
+    public function __construct(private readonly string|int $otp) {}
 
     public function validate(User $user): bool
     {
