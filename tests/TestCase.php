@@ -12,6 +12,8 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
         parent::setUp();
 
         $this->setUpDatabase($this->app);
+
+        $this->withoutVite();
     }
 
     public function setUpDatabase(?Application $app): void

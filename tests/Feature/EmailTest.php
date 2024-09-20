@@ -6,6 +6,7 @@ use LakM\NoPass\Facades\NoPass;
 use LakM\NoPass\NoPassManager;
 
 use function Pest\Laravel\get;
+use function Pest\Laravel\getJson;
 
 it('can generate a login link', function () {
     Route::get('/login-link', function () {})->name('login-link');
@@ -47,11 +48,12 @@ it('can validate login link', function () {
     $link = $noPass->generate();
 
     Route::get('/login-link', function () use ($noPass) {
-        expect($noPass->isValid())->toBeTrue();
+        return $noPass->isValid() ? true : abort(403);
     })->name('login-link');
 
-    get($link)->assertOk();
-    get($link.'?1=1')->assertServerError();
+
+    getJson($link)->assertOk();
+    get($link.'&test=test')->assertForbidden();
 });
 
 it('can inValidate previous login link', function () {

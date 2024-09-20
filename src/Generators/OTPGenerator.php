@@ -4,12 +4,11 @@ namespace LakM\NoPass\Generators;
 
 use LakM\NoPass\CacheService;
 use LakM\NoPass\Enums\Login;
-use Random\RandomException;
 
 class OTPGenerator extends AbstractGenerator
 {
     /**
-     * @throws RandomException
+     * @throws \Exception
      */
     public function generate(): string
     {

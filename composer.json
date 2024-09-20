@@ -2,12 +2,12 @@
     "name": "lakm/nopass",
     "description": "Provides passwordless authentication for your laravel projects.",
     "keywords": [
-            "laravel",
-            "authentication",
-            "auth",
-            "passwordless",
-            "otp",
-            "email"
+        "laravel",
+        "authentication",
+        "auth",
+        "passwordless",
+        "otp",
+        "email"
     ],
     "type": "library",
     "license": "MIT",
@@ -18,7 +18,11 @@
             "role": "developer"
         }
     ],
-  "require-dev": {
+    "require": {
+        "php": "^8.1",
+        "laravel/framework": "^10.0|^11.0"
+    },
+    "require-dev": {
         "larastan/larastan": "^2.9",
         "laravel/pint": "^1.17",
         "orchestra/testbench": "8.*",
