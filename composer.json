@@ -1,0 +1,50 @@
+{
+    "name": "lakm/nopass",
+    "description": "Provides passwordless authentication for your laravel projects.",
+    "keywords": [
+            "laravel",
+            "authentication",
+            "auth",
+            "passwordless",
+            "otp",
+            "email"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lakshan-Madushanka",
+            "email": "epmadushanka@gmail.com",
+            "role": "developer"
+        }
+    ],
+  "require-dev": {
+        "larastan/larastan": "^2.9",
+        "laravel/pint": "^1.17",
+        "orchestra/testbench": "8.*",
+        "pestphp/pest": "^2.34",
+        "pestphp/pest-plugin-laravel": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "LakM\\NoPass\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LakM\\NoPass\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "analyze": "./vendor/bin/phpstan analyse",
+        "pint": "./vendor/bin/pint"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "stable"
+}
