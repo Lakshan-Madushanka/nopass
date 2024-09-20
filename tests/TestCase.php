@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LakM\NoPass\Tests;
 
 use Illuminate\Database\Schema\Blueprint;
@@ -20,7 +22,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     {
         $schema = $app['db']->connection()->getSchemaBuilder();
 
-        $schema->create('users', function (Blueprint $table) {
+        $schema->create('users', function (Blueprint $table): void {
             $table->id();
             $table->string('name')->nullable();
             $table->string('email')->nullable();

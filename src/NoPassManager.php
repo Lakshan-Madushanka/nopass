@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LakM\NoPass;
 
 use Illuminate\Foundation\Auth\User;
@@ -79,6 +81,6 @@ class NoPassManager
 
     public function isValid(string|int|null $otp = null): bool
     {
-        return (new Validator)->isValid($this->user, $otp);
+        return (new Validator())->isValid($this->user, $otp);
     }
 }

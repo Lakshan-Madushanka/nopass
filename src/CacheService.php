@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LakM\NoPass;
 
 use Illuminate\Foundation\Auth\User;

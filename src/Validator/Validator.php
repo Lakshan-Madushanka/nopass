@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LakM\NoPass\Validator;
 
 use Illuminate\Foundation\Auth\User;
@@ -12,7 +14,7 @@ class Validator
 
     public function isValid(User $user, string|int|null $otp = null): bool
     {
-        if (! $this->checkKeyExists($user)) {
+        if ( ! $this->checkKeyExists($user)) {
             return false;
         }
 
@@ -31,12 +33,12 @@ class Validator
         }
 
         $validator = match ($this->getType($user)) {
-            Login::EMAIL => new EmailValidator,
+            Login::EMAIL => new EmailValidator(),
             Login::OTP => new OTPValidator($otp),
         };
 
         $this->validator = $validator;
-        
+
         return $this->validator;
     }
 

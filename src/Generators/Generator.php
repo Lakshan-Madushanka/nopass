@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LakM\NoPass\Generators;
 
 use Illuminate\Foundation\Auth\User;
@@ -18,7 +20,8 @@ class Generator
     {
         return match ($this->type) {
             Login::OTP => (new OTPGenerator(
-                $this->user, $this->expireAfter
+                $this->user,
+                $this->expireAfter,
             ))->generate(),
             Login::EMAIL => (new EmailGenerator(
                 user: $this->user,

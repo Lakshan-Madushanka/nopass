@@ -1,14 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LakM\NoPass\Generators;
 
 use LakM\NoPass\CacheService;
 use LakM\NoPass\Enums\Login;
+use Exception;
 
 class OTPGenerator extends AbstractGenerator
 {
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function generate(): string
     {

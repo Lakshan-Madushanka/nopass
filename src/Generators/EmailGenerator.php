@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LakM\NoPass\Generators;
 
 use Illuminate\Support\Facades\URL;
@@ -20,12 +22,12 @@ class EmailGenerator extends AbstractGenerator
                 'email' => sha1($this->user->getEmailForVerification()),
                 'redirect_url' => $this->redirectUrl,
                 'id' => $id,
-                ...$data
-            ]
+                ...$data,
+            ],
         );
 
         $cached = CacheService::put($this->user, $id, Login::EMAIL, $this->expireAfter);
-        
+
         return $url;
     }
 }

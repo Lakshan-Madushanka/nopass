@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 use LakM\NoPass\NoPassManager;
 
-it('can generate a otp code', function () {
+it('can generate a otp code', function (): void {
     $user = user();
 
-    $code = (new NoPassManager)
+    $code = (new NoPassManager())
         ->for($user)
         ->otp()
         ->generate();
@@ -14,10 +16,10 @@ it('can generate a otp code', function () {
         ->and(strlen($code))->toBe(5);
 });
 
-it('can validate otp code', function () {
+it('can validate otp code', function (): void {
     $user = user();
 
-    $noPass = (new NoPassManager)
+    $noPass = (new NoPassManager())
         ->for($user)
         ->otp();
 
@@ -27,10 +29,10 @@ it('can validate otp code', function () {
         ->and($noPass->isValid(random_int(0, 100000)))->toBeFalse();
 });
 
-it('can inValidate previous otp code', function () {
+it('can inValidate previous otp code', function (): void {
     $user = user();
 
-    $noPass = (new NoPassManager)
+    $noPass = (new NoPassManager())
         ->for($user)
         ->otp();
 
@@ -41,10 +43,10 @@ it('can inValidate previous otp code', function () {
         ->and($noPass->isValid($code2))->toBeTrue();
 });
 
-it('can inValidate a otp code', function () {
+it('can inValidate a otp code', function (): void {
     $user = user();
 
-    $noPass = (new NoPassManager)
+    $noPass = (new NoPassManager())
         ->for($user)
         ->otp();
 

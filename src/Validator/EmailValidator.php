@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LakM\NoPass\Validator;
 
 use Illuminate\Foundation\Auth\User;
@@ -12,19 +14,19 @@ class EmailValidator implements ValidatorContract
     {
         $request = request();
 
-        if (! $request->hasValidSignature()) {
+        if ( ! $request->hasValidSignature()) {
             return false;
         }
 
-        if (! $this->validateId($user, $request)) {
+        if ( ! $this->validateId($user, $request)) {
             return false;
         }
 
-        if (! $this->validateEmail($user, $request)) {
-            return false;
-        }
+        return ! ( ! $this->validateEmail($user, $request))
 
-        return true;
+
+
+        ;
     }
 
     public function validateId(User $user, Request $request): bool
