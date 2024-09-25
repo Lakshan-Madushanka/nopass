@@ -4,6 +4,7 @@
 **[How it works](#how-it-works)** |
 **[Verification link](#verification-link)** |
 **[OTP code](#otp-code)** |
+**[Usage examples](#usage-examples)** |
 **[Changelog](#changelog)** |
 **[Testing](#testing)** |
 **[Security](#security)** |
@@ -66,10 +67,12 @@ OTP (One-Time Password) to the user's mobile number.
 ```php
     use LakM\NoPass\Facades\NoPass;
     
+    $data = [];
+    
     $link = NoPass::for($user)
         ->email()
         ->routeName('login-link')
-        ->generate();
+        ->generate($data); // Data are attached to query string
 ```
 
 ## OTP Code
@@ -86,15 +89,24 @@ OTP (One-Time Password) to the user's mobile number.
 
 ## Check validity
 
+### Check Email
+
 ```php
     use LakM\NoPass\Facades\NoPass;
     
     $isValid = NoPass::for($user)
             ->isValid();
 ```
+### Check OTP
+
+```php
+    use LakM\NoPass\Facades\NoPass;
+    
+    $isValid = NoPass::for($user)
+            ->isValid($otp);
+```
 
 ## Invalidate
-
 
 ```php
     use LakM\NoPass\Facades\NoPass;
@@ -103,10 +115,10 @@ OTP (One-Time Password) to the user's mobile number.
             ->inValidate();
 ```
 
-## Demo
+## Usage Examples
 
-### Project
-
+- [Send login link](https://github.com/Lakshan-Madushanka/laravel-comments/blob/9f1c325caa877dc804335e436abba9f5e9450bf7/src/SecureGuestModeManager.php#L47)
+- [Authenticate link](https://github.com/Lakshan-Madushanka/laravel-comments/blob/9f1c325caa877dc804335e436abba9f5e9450bf7/src/Actions/VerifyGuestAction.php#L16)
 
 ## Changelog
 
