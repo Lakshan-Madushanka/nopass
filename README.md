@@ -10,8 +10,6 @@
 **[Security](#security)** |
 **[License](#license)**
 
-<img src="https://github.com/user-attachments/assets/9438aee5-a6f0-4399-bcae-e764f564ad35" width="580" alt="Commenter logo">
-
 # <img src="https://github.com/user-attachments/assets/1684696e-0dc0-4cda-ae00-6dcd77bc36c6">
 
 **Passwords are no longer secure!**
