@@ -18,9 +18,7 @@ class OTPValidator implements ValidatorContract
         return (new Timebox())
             ->call(function () use ($user) {
                 $data = explode(';', CacheService::get($user));
-
                 return (bool) ($data[1] === 'otp' && sha1((string) $this->otp) === $data[0]);
-
             }, 200 * 1000);
     }
 
@@ -31,7 +29,7 @@ class OTPValidator implements ValidatorContract
 
     public function validateEmail(User $user, Request $request): bool
     {
-        return sha1($user->getEmailForVerification()) === $request->query('email');
+        return hash_equals(sha1($user->getEmailForVerification()),  $request->query('email'));
     }
 
     public function getId(User $user): ?string
