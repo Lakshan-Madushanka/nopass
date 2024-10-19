@@ -29,7 +29,7 @@ class OTPValidator implements ValidatorContract
 
     public function validateEmail(User $user, Request $request): bool
     {
-        return hash_equals(sha1($user->getEmailForVerification()),  $request->query('email'));
+        return hash_equals(sha1($user->getEmailForVerification()), $request->query('email'));
     }
 
     public function getId(User $user): ?string
