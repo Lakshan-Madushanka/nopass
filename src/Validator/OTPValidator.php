@@ -19,11 +19,7 @@ class OTPValidator implements ValidatorContract
             ->call(function () use ($user) {
                 $data = explode(';', CacheService::get($user));
 
-                return (bool) ($data[1] === 'otp' && sha1((string) $this->otp) === $data[0])
-
-
-
-                ;
+                return (bool) ($data[1] === 'otp' && sha1((string) $this->otp) === $data[0]);
 
             }, 200 * 1000);
     }
