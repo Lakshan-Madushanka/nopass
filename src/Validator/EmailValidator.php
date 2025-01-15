@@ -22,11 +22,7 @@ class EmailValidator implements ValidatorContract
             return false;
         }
 
-        return ! ( ! $this->validateEmail($user, $request))
-
-
-
-        ;
+        return ! ( ! $this->validateEmail($user, $request));
     }
 
     public function validateId(User $user, Request $request): bool
