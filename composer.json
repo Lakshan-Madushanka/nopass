@@ -23,11 +23,11 @@
         "laravel/framework": "^10.0|^11.0|^12.0"
     },
     "require-dev": {
-        "larastan/larastan": "^2.9",
+        "larastan/larastan": "^2.9|^3.0",
         "laravel/pint": "^1.17",
-        "orchestra/testbench": "8.*",
-        "pestphp/pest": "^2.34",
-        "pestphp/pest-plugin-laravel": "^2.3"
+        "orchestra/testbench": "8.*|10.*",
+        "pestphp/pest": "^2.34|^3.0",
+        "pestphp/pest-plugin-laravel": "^2.3|^3.0"
     },
     "autoload": {
         "psr-4": {
